@@ -1,0 +1,107 @@
+<div class="center">
+
+    <div>
+        FirstName:<input type="text" [value]="FirstName" [(ngModel)]="FirstName">
+    </div>
+    <br>
+    <div>
+        Customerid:<input type="text" [value]="Customerid" [(ngModel)]="Customerid">
+    </div>
+    <br>
+    <div>
+        LastName:<input type="text" [value]="LastName" [(ngModel)]="LastName">
+    </div>
+    <br>
+    <div>
+        Address:<input type="text" [value]="Address" [(ngModel)]="Address">
+    </div>
+    <br>
+    <div>
+        City:<input type="text" [value]="City" [(ngModel)]="City">
+
+    </div>
+    <br>
+    <div>
+        Dropdown:<select [(ngModel)]="selectedItem" class="dropdown">
+            <option *ngFor="let item of items" [value]="item">{{item}}</option>
+        </select>
+    </div>
+    <br>
+    <div>
+        PostalCode:<input type="checkbox" [value]="PostalCode" [(ngModel)]="PostalCode">
+    </div>
+    <br>
+    <div>
+        username:<input type="radio" [value]="height">
+    </div>
+    <br>
+    <div>
+        Password:<input type="radio" [value]="height">
+    </div>
+    <br>
+    <div>
+        Date:<input type="date" [(ngModel)]="dateselected">
+    </div>
+    <br>
+
+    <button type="button" (click)='submit()'>Submit</button>
+    <button type="button" (click)='Reset()'>Reset</button>
+    <br><br>
+
+    <div class="wrapper">
+    </div>
+    <div class="overlay" *ngIf="show">
+        <div class="content">
+            <div class="close" (click)="closepopup()">
+                &times;
+            </div>
+            First Name: <input type="text" [value]="FirstName" [(ngModel)]="FirstName">
+            <br><br>
+            LastName: <input type="text" [value]="LastName" [(ngModel)]="LastName">
+            <br><br>
+            <!-- Customerid: <input type="text" [value]="Customerid" [(ngModel)]="Customerid">
+            <br><br> -->
+            <button class="btn btn-primary" (click)="save()">save</button>
+            <button class="btn btn-primary " (click)="closepopup()">Cancel</button>
+        </div>
+    </div>
+    <div class="overlay" *ngIf="show1">
+        <div class="content1">
+            <div class="close" (click)="closepopup()">
+                &times;
+            </div>
+            Are you sure want to delete
+            <br><br>
+            <button class="btn btn-primary" (click)="Delete()">YES</button>
+            <button class="btn btn-primary " (click)="closepopup()">NO</button>
+        </div>
+    </div>
+
+</div>
+<table>
+    <tr>
+        <th>EDIT Button </th>
+        <th>Delete Button </th>
+        <th>FirstName </th>
+        <th>Customerid </th>
+        <th>LastName</th>
+        <th>Address</th>
+        <th>Date</th>
+        <th>PostalCode</th>
+        <th>username </th>
+        <th>Password</th>
+    </tr>
+    <tr *ngFor="let row of appdetails ">
+        <td><button class="btn btn-primary" (click)='Edit1(row)'>Edit</button></td>
+        <td><button (click)='Delete1(row)'>Delete</button></td>
+        <td>{{row.FirstName}}</td>
+        <td>{{row.Customerid}}</td>
+        <td>{{row.LastName}}</td>
+        <td>{{row.Address}}</td>
+        <td>{{row.City}}</td>
+        <td>{{row.PostalCode}}</td>
+        <td>{{row.Username}}</td>
+        <td>{{row.Password}}</td>
+
+    </tr>
+</table>
